@@ -1,6 +1,6 @@
 function importarEstoque() {
   const urlBase = 'https://api.sigecloud.com.br/request/Estoque/BuscarQuantidades';  
-  const depositos = ['MATRIZ', 'ATACADO', 'AUTOATENDIMENTO', 'DIRCEU', 'PARNAIBA', 'PICOS'];  
+  const depositos = ['MATRIZ', 'ATACADO', 'DIRCEU', 'PARNAIBA', 'PICOS', 'AUTOATENDIMENTO'];  
 
   const token = PropertiesService.getScriptProperties().getProperty('Authorization-Token'); 
   const user = PropertiesService.getScriptProperties().getProperty('User');
@@ -23,7 +23,7 @@ function importarEstoque() {
   const planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Estoques");
   planilha.clearContents();
 
-  const headers = ['Código', 'Estoque Matriz', 'Estoque Atacado', 'Estoque Auto-Atendimento', 'Estoque Dirceu', 'Estoque Parnaiba', 'Estoque Picos'];
+  const headers = ['Código', 'Estoque Matriz', 'Estoque Atacado', 'Estoque Dirceu', 'Estoque Parnaiba', 'Estoque Picos', 'Estoque Auto-Atendimento'];
   planilha.appendRow(headers);
 
   function buscarDadosDeposito(deposito) {
